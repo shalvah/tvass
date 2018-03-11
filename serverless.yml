@@ -1,0 +1,19 @@
+service: tvass
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+  environment:
+    PUSHER_APP_KEY: value1
+    PUSHER_APP_ID: value1
+    PUSHER_APP_CLUSTER: eu
+
+functions:
+  home:
+    handler: handler.home
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
